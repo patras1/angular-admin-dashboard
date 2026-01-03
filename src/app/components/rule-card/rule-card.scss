@@ -1,0 +1,21 @@
+// ============================================
+// RULE CARD COMPONENT STYLES
+// ============================================
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.card {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+button {
+  margin-top: $spacing-md;
+  @include button-base;
+  @include button-variant($primary-color, white, $primary-dark);
+}

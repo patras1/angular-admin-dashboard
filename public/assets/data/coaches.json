@@ -1,0 +1,15 @@
+[
+    {
+        "id": "coach_1",
+        "name": "John Doe",
+        "email": "john.doe@gmail.com",
+        "password": "password"
+    },
+    {
+        "id": "coach_2",
+        "name": "Dan Patra",
+        "email": "dan.patra@gmail.com",
+        "password": "password"
+    }
+]
+

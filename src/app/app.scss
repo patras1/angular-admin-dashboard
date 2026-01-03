@@ -1,0 +1,16 @@
+// ============================================
+// APP ROOT STYLES
+// ============================================
+@import '../styles/variables';
+@import '../styles/mixins';
+
+:host {
+  font-family: $font-family-base;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+:host * {
+  font-family: inherit;
+}

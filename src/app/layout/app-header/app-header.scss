@@ -1,0 +1,16 @@
+// ============================================
+// APP HEADER STYLES
+// ============================================
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.topbar {
+  @include flex-between;
+  background-color: $background-color;
+  color: $text-primary;
+  height: 50px;
+  padding: $spacing-md;
+  width: 100%;
+  border-bottom: 1px solid $border-color;
+  box-shadow: $shadow-sm;
+}

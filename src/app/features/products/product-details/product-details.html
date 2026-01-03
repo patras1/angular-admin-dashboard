@@ -1,0 +1,36 @@
+<div class="card">
+<div class="back-button">
+  <button (click)="goBack()" class="btn-back">
+    ← Back to Products
+  </button>
+</div>
+
+<section *ngIf="product$ | async as product" class="product-details">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.title" />
+  </div>
+  
+  <div class="product-info">
+    <h2>{{ product.title }}</h2>
+    
+    <p class="category">
+      <strong>Category:</strong> {{ product.category }}
+    </p>
+    
+    <p class="price">
+      <strong>Price:</strong> ${{ product.price }}
+    </p>
+    
+    <p class="description">
+      <strong>Description:</strong> {{ product.description }}
+    </p>
+    
+    <div class="rating">
+      <strong>Rating:</strong>
+      <span class="rate">{{ product.rating.rate }}/5</span>
+      <span class="count">({{ product.rating.count }} reviews)</span>
+    </div>
+  </div>
+</section>
+
+</div>

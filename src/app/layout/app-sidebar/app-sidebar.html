@@ -1,0 +1,21 @@
+<nav 
+    [ngClass]="{
+    'sidebar-light': (preferences$ | async)?.theme === 'light',
+    'sidebar-dark': (preferences$ | async)?.theme === 'dark'}"
+    class="sidebar">
+     
+    <div class="sidebar-header">
+          <h2>Sidebar</h2>
+        <button class="toggle-theme-button" (click)="toggleTheme()">{{ (preferences$ | async)?.theme }}</button>
+     <select class="toggle-language-button" (change)="onLanguageChange($event)">
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+     </select>
+    </div>  
+
+    <a routerLink="/overview" routerLinkActive="active">{{ 'Overview'  }}</a>
+    <a routerLink="/settings" routerLinkActive="active">{{ 'Settings' }}</a>
+    <a routerLink="/coach-profile" routerLinkActive="active">{{ 'Coach Profile' }}</a>
+    <a routerLink="/nutrition-logic" routerLinkActive="active">{{ 'Nutrition Logic' }}</a>
+    <button class="btn primary-btn" (click)="logout()">Logout</button>
+</nav>

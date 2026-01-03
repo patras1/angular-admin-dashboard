@@ -1,0 +1,252 @@
+// ============================================
+// FORM FIELD WRAPPER
+// ============================================
+.form-field,
+.form-group {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+}
+
+// ============================================
+// LABELS
+// ============================================
+label {
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  font-size: $font-size-base;
+
+  .required {
+    color: $danger-color;
+    margin-left: 2px;
+  }
+}
+
+// ============================================
+// TEXT INPUTS, TEXTAREA, SELECT
+// ============================================
+// TEXT INPUTS, TEXTAREA, SELECT
+// ============================================
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='time'],
+input[type='search'],
+textarea,
+select {
+  @include input-base;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  cursor: pointer;
+
+  option {
+    padding: $spacing-sm;
+  }
+}
+
+// ============================================
+// CHECKBOX
+// ============================================
+input[type='checkbox'] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: $primary-color;
+
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// ============================================
+// RADIO
+// ============================================
+input[type='radio'] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: $primary-color;
+
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// ============================================
+// CHECKBOX / RADIO WRAPPER
+// ============================================
+.checkbox-wrapper,
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    margin: 0;
+  }
+
+  label {
+    margin: 0;
+    font-weight: $font-weight-regular;
+  }
+}
+
+// ============================================
+// INPUT WITH ICON
+// ============================================
+.input-with-icon {
+  position: relative;
+  display: flex;
+
+  input {
+    padding-left: 40px;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: $spacing-md;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-secondary;
+    pointer-events: none;
+  }
+}
+
+// ============================================
+// INPUT WITH SUFFIX/PREFIX
+// ============================================
+.input-group {
+  display: flex;
+  align-items: center;
+
+  input {
+    flex: 1;
+    margin: 0;
+    border-radius: $border-radius-md 0 0 $border-radius-md;
+
+    &:last-child {
+      border-radius: 0 $border-radius-md $border-radius-md 0;
+    }
+  }
+
+  .input-addon {
+    padding: $spacing-sm $spacing-md;
+    background-color: $background-secondary;
+    border: 1px solid $border-color;
+    border-left: none;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+
+    &:first-child {
+      border-left: 1px solid $border-color;
+      border-right: none;
+      border-radius: $border-radius-md 0 0 $border-radius-md;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius-md $border-radius-md 0;
+    }
+  }
+}
+
+// ============================================
+// FIELD ERROR STATE
+// ============================================
+.field-error {
+  .field-error-message {
+    color: $danger-color;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  input,
+  textarea,
+  select {
+    border-color: $danger-color;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($danger-color, 0.1);
+    }
+  }
+}
+
+// ============================================
+// FIELD SUCCESS STATE
+// ============================================
+.field-success {
+  input,
+  textarea,
+  select {
+    border-color: $success-color;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($success-color, 0.1);
+    }
+  }
+}
+
+// ============================================
+// FIELD DISABLED STATE
+// ============================================
+.field-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// ============================================
+// HELP TEXT
+// ============================================
+.field-help {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin-top: $spacing-xs;
+}
+
+// ============================================
+// FIELD LABEL HELPER
+// ============================================
+.field-label-helper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
+
+  label {
+    margin: 0;
+  }
+
+  .field-hint {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+}

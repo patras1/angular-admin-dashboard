@@ -1,0 +1,139 @@
+// ============================================
+// CARD BASE STYLES
+// ============================================
+.card {
+  @include card-base;
+}
+
+// ============================================
+// CARD VARIANTS
+// ============================================
+.card-primary {
+  @include card-base;
+  border-left: 4px solid $primary-color;
+}
+
+.card-success {
+  @include card-base;
+  border-left: 4px solid $success-color;
+}
+
+.card-warning {
+  @include card-base;
+  border-left: 4px solid $warning-color;
+}
+
+.card-danger {
+  @include card-base;
+  border-left: 4px solid $danger-color;
+}
+
+// ============================================
+// CARD ELEVATED (More prominent shadow)
+// ============================================
+.card-elevated {
+  @include card-base;
+  box-shadow: $shadow-lg;
+
+  &:hover {
+    box-shadow: $shadow-xl;
+  }
+}
+
+// ============================================
+// CARD FLAT (No shadow)
+// ============================================
+.card-flat {
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  box-shadow: none;
+}
+
+// ============================================
+// CARD SECTIONS
+// ============================================
+.card-header {
+  margin: -$spacing-lg -$spacing-lg $spacing-lg -$spacing-lg;
+  padding: $spacing-md $spacing-lg;
+  // border-bottom: 1px solid $border-color;
+  // background-color: $background-secondary;
+  border-radius: $border-radius-lg $border-radius-lg 0 0;
+
+  &:first-child {
+    margin-top: -$spacing-lg;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: $text-primary;
+  }
+}
+
+.card-body {
+  flex: 1;
+}
+
+.card-footer {
+  margin: $spacing-lg -$spacing-lg -$spacing-lg -$spacing-lg;
+  padding: $spacing-md $spacing-lg;
+  border-top: 1px solid $border-color;
+  background-color: $background-secondary;
+  border-radius: 0 0 $border-radius-lg $border-radius-lg;
+  @include flex-between;
+
+  &:last-child {
+    margin-bottom: -$spacing-lg;
+  }
+}
+
+// ============================================
+// CARD GRID
+// ============================================
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ============================================
+// CARD WITH HOVER ACTION
+// ============================================
+.card-hover {
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// ============================================
+// CARD IMAGE
+// ============================================
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: $border-radius-lg $border-radius-lg 0 0;
+  object-fit: cover;
+  margin: -$spacing-lg -$spacing-lg $spacing-lg -$spacing-lg;
+
+  &:first-child {
+    margin-top: -$spacing-lg;
+  }
+}

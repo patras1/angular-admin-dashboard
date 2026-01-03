@@ -1,0 +1,87 @@
+// ============================================
+// NUTRITION LOGIC STYLES
+// ============================================
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.panel {
+  max-width: 1400px;
+  padding: $spacing-lg;
+  background: $background-secondary;
+  border-radius: $border-radius-lg;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $spacing-lg;
+  margin-top: $spacing-lg;
+}
+
+.card {
+  @include card-base;
+}
+
+.card-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 2px solid $border-light;
+  @include flex-between;
+  gap: $spacing-sm;
+}
+
+.group {
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+    @include flex-between;
+    gap: $spacing-xs;
+  }
+}
+
+label {
+  display: block;
+  font-size: $font-size-sm;
+  margin-top: $spacing-sm;
+  color: $text-primary;
+  font-weight: $font-weight-medium;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: $spacing-xs;
+}
+
+.ingredient {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: $spacing-md;
+  align-items: center;
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@include respond-to('md') {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+
+  .card {
+    padding: $spacing-md;
+  }
+}
+  

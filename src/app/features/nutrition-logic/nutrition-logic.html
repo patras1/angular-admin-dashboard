@@ -1,0 +1,178 @@
+<section class="panel">
+    <h2>
+      Coach Philosophy
+      <info-tooltip
+        [text]="'These settings define how this coach thinks about food and guidance.'">
+      </info-tooltip>
+    </h2>
+  
+    <form [formGroup]="form">
+    <div class="cards-grid">
+      <!-- Macro Settings Card -->
+      <div class="card">
+        <h3 class="card-title">
+          Macro Settings
+          <info-tooltip
+            [text]="'Controls which macros this coach prioritizes when improving meals.'">
+          </info-tooltip>
+        </h3>
+        <div class="group">
+          <label>
+            Protein {{ form.value.protein }}%
+            <info-tooltip [text]="tooltips.protein"></info-tooltip>
+          </label>
+          <input type="range" min="0" max="100" formControlName="protein">
+        </div>
+        <div class="group">
+          <label>
+            Carbs {{ form.value.carbs }}%
+            <info-tooltip [text]="tooltips.carbs"></info-tooltip>
+          </label>
+          <input type="range" min="0" max="100" formControlName="carbs">
+        </div>
+        <div class="group">
+          <label>
+            Fats {{ form.value.fats }}%
+            <info-tooltip [text]="tooltips.fats"></info-tooltip>
+          </label>
+          <input type="range" min="0" max="100" formControlName="fats">
+        </div>
+      </div>
+
+      <!-- Food Preferences Card -->
+      <div class="card">
+        <h3 class="card-title">Food Preferences</h3>
+        <div class="group">
+          <h4>
+            Flexibility
+            <info-tooltip [text]="tooltips.energyFlexibility"></info-tooltip>
+          </h4>
+          <label>Structured ⟷ Flexible</label>
+          <input type="range" min="0" max="100" formControlName="energyFlexibility">
+        </div>
+        <div class="group">
+          <h4>
+            Food Quality Bias
+            <info-tooltip [text]="tooltips.foodQualityBias"></info-tooltip>
+          </h4>
+          <input type="range" min="0" max="100" formControlName="foodQualityBias">
+        </div>
+        <div class="group">
+          <h4>
+            Carb Tolerance
+            <info-tooltip [text]="tooltips.carbTolerance"></info-tooltip>
+          </h4>
+          <input type="range" min="0" max="100" formControlName="carbTolerance">
+        </div>
+      </div>
+
+      <!-- Meal Behavior Card -->
+      <div class="card">
+        <h3 class="card-title">Meal Behavior</h3>
+        <div class="group">
+          <h4>
+            Satiety Priority
+            <info-tooltip [text]="tooltips.satietyPriority"></info-tooltip>
+          </h4>
+          <input type="range" min="0" max="100" formControlName="satietyPriority">
+        </div>
+        <div class="group">
+          <h4>
+            Meal Timing Importance
+            <info-tooltip [text]="tooltips.mealTimingBias"></info-tooltip>
+          </h4>
+          <input type="range" min="0" max="100" formControlName="mealTimingBias">
+        </div>
+      </div>
+
+      <!-- Ingredient Preferences Card -->
+      <div class="card">
+        <h3 class="card-title">
+          Ingredient Preferences
+          <info-tooltip
+            [text]="'How strongly this coach prefers or avoids different food groups.'">
+          </info-tooltip>
+        </h3>
+        <div
+          class="ingredient"
+          *ngFor="let cat of ingredientCategories">
+          <label>
+            {{ cat }}
+          </label>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            [formControl]="$any(form.get('ingredientBias')?.get(cat))">
+        </div>
+      </div>
+
+      <!-- Coaching Approach Card -->
+      <div class="card">
+        <h3 class="card-title">
+          Coaching Approach
+          <info-tooltip
+            [text]="'How the coach interacts and provides guidance.'">
+          </info-tooltip>
+        </h3>
+        <div class="group">
+          <h4>
+            Coaching Style
+            <info-tooltip
+              [text]="'Whether the coach focuses more on fixing issues or reinforcing strengths.'">
+            </info-tooltip>
+          </h4>
+          <label>
+            Corrective
+            <info-tooltip [text]="tooltips.corrective"></info-tooltip>
+          </label>
+          <input type="range" min="0" max="100" formControlName="corrective">
+          <label>
+            Reinforcing
+            <info-tooltip [text]="tooltips.reinforcing"></info-tooltip>
+          </label>
+          <input type="range" min="0" max="100" formControlName="reinforcing">
+        </div>
+        <div class="group">
+          <h4>
+            Intervention Threshold
+            <info-tooltip [text]="tooltips.interventionThreshold"></info-tooltip>
+          </h4>
+          <input type="range" min="0" max="100" formControlName="interventionThreshold">
+        </div>
+      </div>
+
+      <!-- Live Preview Card -->
+      <div class="card preview-card">
+        <h3 class="card-title">
+          Live Preview
+          <info-tooltip
+            [text]="'See how this coach would respond to a sample meal.'">
+          </info-tooltip>
+        </h3>
+      
+        <div class="preview-section">
+          <h4>Sample Meal</h4>
+          <p class="meal">Toast with avocado</p>
+        </div>
+      
+        <div class="preview-section">
+          <h4>Coach Insight</h4>
+          <p class="coach-text">
+            {{ preview.insight }}
+          </p>
+        </div>
+      
+        <div class="preview-section">
+          <h4>Suggested Additions</h4>
+          <ul class="suggestions">
+            <li *ngFor="let item of preview.suggestions">
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </form>
+  </section>
+  

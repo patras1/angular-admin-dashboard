@@ -1,0 +1,58 @@
+// ============================================
+// LOGIN COMPONENT STYLES
+// ============================================
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.container {
+  @include flex-center;
+  height: 100vh;
+  background-color: $background-secondary;
+}
+
+.card {
+  @include card-base;
+  @include flex-column;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-header {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.card-body {
+  @include flex-column;
+  width: 100%;
+  gap: $spacing-lg;
+}
+
+.form-group {
+  @include flex-column;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+
+  label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  input {
+    @include input-base;
+    width: 100%;
+    box-sizing: border-box;
+    // padding: 8px 0px;
+  }
+}
+
+.btn-primary {
+  @include button-base;
+  @include button-variant($primary-color, white, $primary-dark);
+  width: 100%;
+}

@@ -1,0 +1,75 @@
+<div class="card" [class.disabled]="!rule.enable">
+
+  @if (!editable) {
+    <!-- VIEW MODE -->
+    <strong>{{ rule.name }}</strong>
+
+    <div>
+      <strong>Condition:</strong>
+      {{ rule.conditionKey }} = {{ rule.conditionValue }}
+    </div>
+
+    <div>
+      <strong>Action:</strong>
+      {{ rule.actionKey }} = {{ rule.actionValue }}
+    </div>
+
+    <div class="actions">
+      <button type="button" (click)="edit.emit(rule.id)">
+        Edit
+      </button>
+
+      <button type="button" (click)="remove.emit(rule.id)">
+        Remove
+      </button>
+    </div>
+  }
+
+ @else {
+    <!-- EDIT MODE -->
+    <form [formGroup]="form">
+      <div>
+        <label>
+          Name
+          <input formControlName="name" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Condition Key
+          <input formControlName="conditionKey" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Condition Value
+          <input formControlName="conditionValue" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Action Key
+          <input formControlName="actionKey" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Action Value
+          <input formControlName="actionValue" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" (click)="edit.emit(null)">Cancel</button>
+        <button type="button" (click)="onSave()">Save</button>
+
+      </div>
+    </form>
+  }
+
+
+</div>

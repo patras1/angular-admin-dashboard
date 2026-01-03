@@ -1,0 +1,58 @@
+// ============================================
+// APP LAYOUT STYLES
+// ============================================
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: $secondary-dark;
+  color: white;
+  padding: $spacing-md;
+
+  nav {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  a {
+    color: $text-tertiary;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &.active {
+      color: white;
+      font-weight: $font-weight-semibold;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  @include flex-column;
+}
+
+.topbar {
+  height: 56px;
+  border-bottom: 1px solid $border-color;
+  @include flex-between;
+  padding: 0 $spacing-md;
+  font-weight: $font-weight-semibold;
+  background-color: $background-color;
+}
+
+.page {
+  padding: $spacing-md;
+  overflow: auto;
+  background-color: $background-secondary;
+  height: 100vh;
+}

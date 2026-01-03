@@ -1,0 +1,10 @@
+<div class="card">
+    <ul *ngIf="products$ | async as products">
+        <li *ngFor="let product of products"
+        (click)="openProduct(product.id)"
+        style="cursor:pointer"
+        >
+            {{ product.title }} - {{ product.category }}
+        </li>
+    </ul>
+</div>

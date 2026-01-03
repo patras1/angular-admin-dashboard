@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter your name"
+      />
+  
+      <div
+        class="error"
+        *ngIf="form.controls.name.touched && form.controls.name.invalid"
+      >
+        Name is required
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Bio</label>
+      <textarea
+        formControlName="bio"
+        placeholder="Enter your bio"
+      ></textarea>
+  
+      <div
+        class="error"
+        *ngIf="form.controls.bio.touched && form.controls.bio.invalid"
+      >
+        Bio is required
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Specialty</label>
+      <input
+        type="text"
+        formControlName="specialty"
+        placeholder="Enter your specialty"
+      />
+  
+      <div
+        class="error"
+        *ngIf="form.controls.specialty.touched && form.controls.specialty.invalid"
+      >
+        Specialty is required
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">
+      Save
+    </button>
+  
+  </form>
+  

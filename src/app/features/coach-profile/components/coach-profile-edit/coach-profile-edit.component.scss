@@ -1,0 +1,29 @@
+// ============================================
+// COACH PROFILE EDIT COMPONENT STYLES
+// ============================================
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+form {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-sm;
+  align-items: center;
+
+  label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  input {
+    @include input-base;
+    flex: 1;
+  }
+}

@@ -1,0 +1,10 @@
+// ============================================
+// COACH PROFILE STYLES
+// ============================================
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.card {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}

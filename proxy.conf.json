@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "https://fakestoreapi.com",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

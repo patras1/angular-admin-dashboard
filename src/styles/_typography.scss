@@ -1,0 +1,134 @@
+// ============================================
+// BASE TYPOGRAPHY
+// ============================================
+* {
+  font-family: $font-family-base;
+}
+
+body,
+html {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+// ============================================
+// HEADINGS
+// ============================================
+h1 {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin: $spacing-lg 0 $spacing-md;
+  color: $text-primary;
+}
+
+h2 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin: $spacing-lg 0 $spacing-md;
+  color: $text-primary;
+}
+
+h3 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin: $spacing-md 0 $spacing-sm;
+  color: $text-primary;
+}
+
+h4,
+h5,
+h6 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+  margin: $spacing-sm 0;
+  color: $text-primary;
+}
+
+// ============================================
+// PARAGRAPH & TEXT
+// ============================================
+p {
+  margin: 0 0 $spacing-md;
+  line-height: $line-height-relaxed;
+}
+
+small {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $primary-dark;
+  }
+}
+
+// ============================================
+// CODE
+// ============================================
+code,
+pre {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+}
+
+code {
+  background-color: $background-tertiary;
+  padding: 2px 6px;
+  border-radius: $border-radius-sm;
+  color: $danger-color;
+}
+
+pre {
+  background-color: $background-tertiary;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+
+  code {
+    background-color: transparent;
+    color: $text-primary;
+    padding: 0;
+  }
+}
+
+// ============================================
+// LIST
+// ============================================
+ul,
+ol {
+  margin: 0 0 $spacing-md $spacing-lg;
+  padding: 0;
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+// ============================================
+// BLOCKQUOTE
+// ============================================
+blockquote {
+  margin: $spacing-md 0;
+  padding-left: $spacing-md;
+  border-left: 4px solid $primary-color;
+  color: $text-secondary;
+}

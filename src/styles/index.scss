@@ -1,0 +1,18 @@
+// ============================================
+// CENTRALIZED STYLES INDEX
+// Import all style modules here
+// ============================================
+
+// 1. Variables (must be first)
+@import './variables';
+
+// 2. Mixins (uses variables)
+@import './mixins';
+
+// 3. Typography
+@import './typography';
+
+// 4. Component Styles
+@import './buttons';
+@import './cards';
+@import './fields';
