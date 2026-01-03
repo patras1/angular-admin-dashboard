@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, map } from "rxjs";
+import { inject, Injectable } from "@angular/core";
+import { Observable, map, shareReplay } from "rxjs";
 
 export interface Product {
   id: number;
@@ -18,10 +18,17 @@ export interface Product {
 @Injectable({providedIn:'root'})
 export class ProductsService{
     private BASE_URL = 'https://fakestoreapi.com/';
-    constructor(private http:HttpClient){}
+    private http = inject(HttpClient);
+
+    private readonly products$ = this.http
+        .get<Product[]>(`${this.BASE_URL}products`)
+        .pipe(
+        shareReplay(1) // 🔑 THIS IS THE KEY
+        );
+
 
     getProducts(): Observable<Product[]>{
-        return this.http.get<Product[]>(`${this.BASE_URL}products`);
+        return this.products$;
     } 
 
     getProduct(id: number): Observable<Product>{

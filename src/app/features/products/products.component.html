@@ -1,10 +1,13 @@
 <div class="card">
-    <ul *ngIf="products$ | async as products">
+    <ul *ngIf="vm$ | async as products">
         <li *ngFor="let product of products"
         (click)="openProduct(product.id)"
         style="cursor:pointer"
         >
             {{ product.title }} - {{ product.category }}
+            <button (click)="toggleFavorite(product.id)">
+                {{ product.isFavorite ? '❤️' : '🤍' }}
+            </button>
         </li>
     </ul>
 </div>

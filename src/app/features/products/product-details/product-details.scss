@@ -67,4 +67,8 @@
   border-radius: 4px;
   border-left: 3px solid #ffc107;
 }
-
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

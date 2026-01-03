@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product, ProductsService } from '../products.service';
-import { Observable, switchMap } from 'rxjs';
+import { combineLatest, map, Observable, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { FavoritesService } from '../favorites/favorites.service';
 
 @Component({
   selector: 'app-product-details',
@@ -15,13 +16,26 @@ export class ProductDetails {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private productsService = inject(ProductsService)
+  private favoritesService = inject(FavoritesService)
 
-  product$:Observable<Product> = this.route.paramMap.pipe(
-    switchMap(params =>{
-      const id = Number(params.get('id'));
-      return this.productsService.getProduct(id)
-    })
-  )
+  vm$: Observable<Product & { isFavorite: boolean }> =
+    combineLatest([
+      this.route.paramMap.pipe(
+        switchMap(params =>
+          this.productsService.getProduct(Number(params.get('id')))
+        )
+      ),
+      this.favoritesService.favorites$
+    ]).pipe(
+      map(([product, favorites]) => ({
+        ...product,
+        isFavorite: favorites.includes(product.id)
+      }))
+    );
+    
+  toggleFavorite(id: number): void {
+    this.favoritesService.toggle(id);
+  }
 
   goBack(): void {
     this.router.navigate(['/overview']);

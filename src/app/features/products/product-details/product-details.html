@@ -3,15 +3,25 @@
   <button (click)="goBack()" class="btn-back">
     ← Back to Products
   </button>
+
+ 
 </div>
 
-<section *ngIf="product$ | async as product" class="product-details">
+<section *ngIf="vm$ | async as product" class="product-details">
+ 
   <div class="product-image">
     <img [src]="product.image" [alt]="product.title" />
   </div>
   
   <div class="product-info">
-    <h2>{{ product.title }}</h2>
+    <div class="title">
+        
+        <h2>{{ product.title }}</h2>
+        <button (click)="toggleFavorite(product.id)">
+            {{ product.isFavorite ? '❤️ Remove favorite' : '🤍 Add to favorites' }}
+        </button>
+    </div>
+       
     
     <p class="category">
       <strong>Category:</strong> {{ product.category }}
