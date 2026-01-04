@@ -36,7 +36,12 @@ export const routes: Routes = [
       loadComponent: () =>
         import('./features/products/product-details/product-details')
           .then(m => m.ProductDetails),
+      },{
+         path:'favorites',
+         loadComponent: () => import('./features/products/favorites/favorited.component')
+          .then(m => m.FavoritesComponent)
       },
+     
       {
         path:'coach-profile',
         loadComponent: () =>

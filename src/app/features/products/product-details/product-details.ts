@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product, ProductsService } from '../products.service';
-import { combineLatest, map, Observable, switchMap } from 'rxjs';
+import { combineLatest, filter, map, Observable, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FavoritesService } from '../favorites/favorites.service';
 
@@ -27,6 +27,7 @@ export class ProductDetails {
       ),
       this.favoritesService.favorites$
     ]).pipe(
+      filter(([product]) => !!product),
       map(([product, favorites]) => ({
         ...product,
         isFavorite: favorites.includes(product.id)

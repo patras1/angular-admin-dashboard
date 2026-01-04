@@ -1,5 +1,9 @@
 <div class="card">
-    <ul *ngIf="vm$ | async as products">
+    <input type="text" 
+        [formControl]="searchControl" 
+        placeholder="Search products..."
+    /> 
+    <ul *ngIf="filteredProducts$ | async as products">
         <li *ngFor="let product of products"
         (click)="openProduct(product.id)"
         style="cursor:pointer"
