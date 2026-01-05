@@ -1,5 +1,12 @@
 
 <div class="topbar">
+      <button
+    class="menu-btn"
+    (click)="menuClick.emit()"
+    aria-label="Open menu"
+  >
+    ☰
+  </button>
     <h1>{{headerTitle()}}</h1>
     <p>Current language:{{ getLanguage() }}</p>
 </div>

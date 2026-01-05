@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { PreferencesContextService } from '../../core/services/preferences-contect.service';
-import { AsyncPipe, NgClass } from '@angular/common';
+import { AsyncPipe, CommonModule, NgClass } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Preferences } from '../../core/models/preferences.model';
 import { AuthContextService } from '../../core/services/auth-context.service';
@@ -9,13 +9,15 @@ import { AuthContextService } from '../../core/services/auth-context.service';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, AsyncPipe,NgClass],
+  imports: [RouterLink, RouterLinkActive, AsyncPipe,NgClass,CommonModule],
   templateUrl: './app-sidebar.html',
   styleUrl: './app-sidebar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 export class AppSidebar {
+  @Input() open = false;
+  @Output() close = new EventEmitter<void>();
 
   preferences$: Observable<Preferences | null>;
 

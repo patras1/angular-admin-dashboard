@@ -20,10 +20,10 @@ export const routes: Routes = [
     canActivate:[AuthGuard],
     children: [
       {
-        path: 'settings',
+        path: 'dashboard',
         loadComponent: () =>
-          import('./features/settings/settings')
-            .then(m => m.Settings)
+          import('./features/dashboardStats/dashboard-stats.component')
+            .then(m => m.DashboardStatsComponent)
       },
       {
         path:'overview',
@@ -40,6 +40,11 @@ export const routes: Routes = [
          path:'favorites',
          loadComponent: () => import('./features/products/favorites/favorited.component')
           .then(m => m.FavoritesComponent)
+      },
+      {
+         path:'favorites-signal',
+         loadComponent: () => import('./features/products/favorites/favorites-signal.component')
+          .then(m => m.FavoritesSignalDemoComponent)
       },
      
       {

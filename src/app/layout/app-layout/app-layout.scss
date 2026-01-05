@@ -1,58 +1,31 @@
-// ============================================
-// APP LAYOUT STYLES
-// ============================================
+
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
-
 .layout {
+  min-height: 100dvh;
   display: flex;
-  height: 100vh;
 }
 
-.sidebar {
-  width: 220px;
-  background: $secondary-dark;
-  color: white;
-  padding: $spacing-md;
-
-  nav {
-    @include flex-column;
-    gap: $spacing-sm;
-  }
-
-  a {
-    color: $text-tertiary;
-    text-decoration: none;
-    transition: color $transition-base;
-
-    &.active {
-      color: white;
-      font-weight: $font-weight-semibold;
-    }
-
-    &:hover {
-      color: white;
-    }
-  }
-}
-
+/* Main content column */
 .content {
   flex: 1;
-  @include flex-column;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* IMPORTANT for overflow */
+  background-color:$background-secondary;
 }
 
-.topbar {
-  height: 56px;
-  border-bottom: 1px solid $border-color;
-  @include flex-between;
-  padding: 0 $spacing-md;
-  font-weight: $font-weight-semibold;
-  background-color: $background-color;
-}
-
+/* Router outlet wrapper */
 .page {
-  padding: $spacing-md;
+  flex: 1;
   overflow: auto;
-  background-color: $background-secondary;
-  height: 100vh;
+  padding: 16px;
+}
+
+/* Backdrop for mobile sidebar */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 900;
 }

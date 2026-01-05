@@ -1,11 +1,20 @@
 <div class="layout">
-  
-  <app-sidebar/>
+  <app-sidebar
+    [open]="isSidebarOpen"
+    (close)="closeSidebar()"
+  />
 
   <main class="content">
-    <app-header/>
+    <app-header (menuClick)="toggleSidebar()" />
+
     <section class="page">
       <router-outlet />
     </section>
   </main>
+
+  <div
+    class="backdrop"
+    *ngIf="isSidebarOpen"
+    (click)="closeSidebar()"
+  ></div>
 </div>

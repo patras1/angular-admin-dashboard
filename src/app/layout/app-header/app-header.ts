@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Observable } from 'rxjs';
 import { Preferences } from '../../core/models/preferences.model';
@@ -14,7 +14,8 @@ import { AsyncPipe } from '@angular/common';
 export class AppHeader {
   headerTitle = signal('Admin Dashboard');
   preferences$: Observable<Preferences | null>;
-  
+  @Output() menuClick = new EventEmitter<void>();
+
   constructor(private router: Router, private preferencesContext: PreferencesContextService) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -33,4 +34,5 @@ export class AppHeader {
       return 'Unknown';
     };
   }
+  
 }

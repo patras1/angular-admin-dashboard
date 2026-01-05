@@ -1,16 +1,27 @@
-// ============================================
-// APP HEADER STYLES
-// ============================================
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: #222;
+  color: white;
 
-.topbar {
-  @include flex-between;
-  background-color: $background-color;
-  color: $text-primary;
-  height: 50px;
-  padding: $spacing-md;
-  width: 100%;
-  border-bottom: 1px solid $border-color;
-  box-shadow: $shadow-sm;
+  position: relative;
+  z-index: 10; /* BELOW sidebar */
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
 }
