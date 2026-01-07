@@ -4,10 +4,11 @@ import { CoachContextService } from '../../core/services/coach-context.service';
 import { Coach } from '../../core/models/coach.model';
 import { Observable } from 'rxjs';
 import { CoachProfileEditComponent } from './components/coach-profile-edit/coach-profile-edit.component';
+import { CoachAvailabilityComponent } from './coach-availabilty/coach-availability.component';
 @Component({
   selector: 'app-coach-profile',
   standalone: true,
-  imports: [CommonModule, AsyncPipe, CoachProfileEditComponent],
+  imports: [CommonModule, AsyncPipe, CoachProfileEditComponent,CoachAvailabilityComponent],
   templateUrl: './coach-profile.html',
   styleUrl: './coach-profile.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

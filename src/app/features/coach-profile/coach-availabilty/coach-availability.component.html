@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h3>Weekly Availability</h3>
+
+  <div formArrayName="slots">
+    <div
+      class="slot-row"
+      *ngFor="let slot of slots.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <select formControlName="day">
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+      </select>
+
+      <input type="time" formControlName="start" />
+      <input type="time" formControlName="end" />
+
+      <button type="button" (click)="removeSlot(i)">
+        Remove
+      </button>
+    </div>
+  </div>
+
+  <button type="button" (click)="addSlot()">
+    + Add availability
+  </button>
+
+  <button type="submit" [disabled]="form.invalid">
+    Save
+  </button>
+</form>
